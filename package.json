@@ -1,0 +1,28 @@
+{
+  "name": "octocam-ultra-lite",
+  "version": "2.0.0",
+  "description": "Ultra-lightweight vanilla HTML/CSS/JS NFT minting platform. No frameworks. ~20KB total.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "dev": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "keywords": [
+    "nft",
+    "camera",
+    "web3",
+    "ethereum",
+    "ipfs",
+    "lightweight",
+    "vanilla"
+  ],
+  "author": "OctoCam",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>OctoCam - Capture. Mint. Share.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="rain"></div>
+  
+  <div class="content-wrapper">
+    <!-- HOME SCREEN -->
+    <div id="homeScreen" class="screen">
+      <div class="retro-panel">
+        <h1>OCTOCAM</h1>
+        <p style="text-align: center; color: #00ccff; margin-bottom: 1.5rem;">
+          Capture. Mint. Own.
+        </p>
+        
+        <div class="instructions">
+          <p>&gt; Connect your MetaMask wallet</p>
+          <p>&gt; Take a photo with your camera</p>
+          <p>&gt; Set NFT metadata & price</p>
+          <p>&gt; Upload to IPFS & Mint</p>
+        </div>
+
+        <div class="button-group">
+          <button id="connectWalletBtn" class="hue-button">
+            CONNECT WALLET
+          </button>
+          <button id="startCaptureBtn" class="hue-button" disabled>
+            START CAPTURE
+          </button>
+        </div>
+
+        <p style="text-align: center; margin-top: 1.5rem; color: #ffaa00;">
+          ⚠ REQUIRES: MetaMask + HTTPS
+        </p>
+      </div>
+    </div>
+
+    <!-- CAMERA SCREEN -->
+    <div id="cameraScreen" class="screen">
+      <div class="retro-panel">
+        <h2>CAMERA FEED</h2>
+        
+        <div class="camera-container">
+          <video id="videoFeed" autoplay playsinline muted></video>
+        </div>
+
+        <div class="controls">
+          <div class="button-grid">
+            <button id="captureBtn" class="btn-purple">CAPTURE</button>
+            <button id="cancelCameraBtn" class="btn-red">CANCEL</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM SCREEN -->
+    <div id="formScreen" class="screen">
+      <div class="retro-panel">
+        <h2>RWA DETAILS</h2>
+        
+        <img id="capturedImg" class="preview-image" alt="RWA Preview">
+
+        <form id="nftForm">
+          <div class="form-group">
+            <label>TITLE</label>
+            <input type="text" id="nftTitle" placeholder="Enter RWA title" required>
+          </div>
+
+          <div class="form-group">
+            <label>DESCRIPTION</label>
+            <textarea id="nftDescription" placeholder="Enter RWA description" rows="3" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>PRICE (ETH)</label>
+            <input type="number" id="nftPrice" placeholder="0.01" step="0.001" min="0" required>
+          </div>
+
+          <div class="form-group">
+            <label>ADD ATTRIBUTES</label>
+            <div class="attribute-input">
+              <input type="text" id="traitType" placeholder="Trait (e.g., Color)">
+              <input type="text" id="traitValue" placeholder="Value (e.g., Blue)">
+              <button type="button" id="addAttrBtn" class="add-btn">ADD</button>
+            </div>
+          </div>
+
+          <div id="attributesList" class="attributes-list"></div>
+
+          <div class="button-grid">
+            <button type="button" id="downloadImgBtn" class="btn-purple">DOWNLOAD IMG</button>
+            <button type="button" id="downloadJsonBtn" class="btn-purple">DOWNLOAD JSON</button>
+          </div>
+
+          <div class="button-grid">
+            <button type="button" id="uploadIPFSBtn" class="hue-button">UPLOAD IPFS</button>
+            <button type="button" id="mintNFTBtn" class="hue-button">MINT RWA</button>
+          </div>
+
+          <div class="button-grid">
+            <button type="button" id="listRWABtn" class="btn-purple">LIST FOR SALE</button>
+            <button type="button" id="buyRWABtn" class="btn-purple">BUY RWA</button>
+          </div>
+
+          <button type="button" id="retakeBtn" class="btn-red" style="width: 100%; margin-top: 1rem;">RETAKE PHOTO</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

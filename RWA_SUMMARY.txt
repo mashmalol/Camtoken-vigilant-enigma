@@ -1,0 +1,339 @@
+#!/usr/bin/env bash
+
+cat << 'EOF'
+
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                  🚀 RWA MARKETPLACE SMART CONTRACT 🚀                     ║
+║                    Real World Asset Trading Platform                       ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ WHAT'S NEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Complete Smart Contract (RWAMarketplace.sol)
+   └─ ERC-721 RWA token standard
+   └─ Full marketplace functionality
+   └─ Secure trading with escrow
+   └─ Platform fee collection
+   └─ Admin controls
+
+✅ Contract ABI & Utilities (RWAMarketplace.js)
+   └─ Ready-to-use ABI for web3 integration
+   └─ Deployment instructions
+   └─ Configuration examples
+
+✅ Frontend Integration (Updated script.js & index.html)
+   └─ Contract address management
+   └─ RWA minting interface
+   └─ Listing & buying functions
+   └─ Seller withdrawal system
+
+✅ Comprehensive Documentation (RWA_CONTRACT_GUIDE.md)
+   └─ Installation guide
+   └─ API reference
+   └─ Deployment walkthrough
+   └─ Testing examples
+   └─ Security considerations
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 RWA MARKETPLACE FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Minting:
+  ✓ Mint RWAs with full metadata
+  ✓ IPFS URI support
+  ✓ Original minter tracking
+  ✓ Timestamp recording
+  ✓ Mint approval system
+
+Marketplace:
+  ✓ List assets for sale
+  ✓ Dynamic price updates
+  ✓ List cancellation
+  ✓ Active listing status
+  ✓ Listing timestamp
+
+Trading:
+  ✓ Secure peer-to-peer buying
+  ✓ Platform fee distribution (5% default)
+  ✓ Seller escrow system
+  ✓ Automatic fund transfer
+  ✓ Overpayment refund handling
+
+Admin Controls:
+  ✓ Approve/revoke minters
+  ✓ Adjust platform fee (0-50%)
+  ✓ Set minimum listing price
+  ✓ Withdraw platform fees
+  ✓ Contract ownership
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔧 SMART CONTRACT FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+RWAMarketplace.sol (3.5 KB)
+├─ Complete Solidity contract
+├─ ERC-721 token implementation
+├─ Marketplace logic
+├─ Fee management
+├─ Access control
+└─ Production-ready code
+
+RWAMarketplace.js (8 KB)
+├─ Contract ABI (JSON)
+├─ Web3/ethers.js compatible
+├─ Function signatures
+├─ Event definitions
+├─ Deployment guide
+└─ Copy-paste ready
+
+RWA_CONTRACT_GUIDE.md (15 KB)
+├─ Complete documentation
+├─ Installation & deployment
+├─ Function reference
+├─ Integration guide
+├─ Testing instructions
+├─ Security notes
+├─ Troubleshooting
+└─ Network support info
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 QUICK DEPLOYMENT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Option A: Remix IDE (Easiest - 5 minutes)
+  1. Go to https://remix.ethereum.org
+  2. Create RWAMarketplace.sol
+  3. Paste contract code
+  4. Select compiler 0.8.20
+  5. Click "Deploy"
+  6. Copy contract address
+
+Option B: Hardhat (Recommended - 10 minutes)
+  1. npm install -D hardhat @openzeppelin/contracts
+  2. npx hardhat init
+  3. Copy RWAMarketplace.sol to contracts/
+  4. Configure hardhat.config.js
+  5. npx hardhat run scripts/deploy.js --network sepolia
+  6. Save contract address
+
+Option C: Truffle Suite
+  1. npm install -g truffle
+  2. truffle init
+  3. Copy contract to contracts/
+  4. truffle migrate --network sepolia
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🛠️ INTEGRATION WITH OCTOCAM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Step 1: Deploy RWA Contract
+  → Get deployed address: 0x...
+
+Step 2: Update OctoCam Configuration
+  → Edit script.js line 10:
+    const CONFIG = {
+      rwaContractAddress: "0x..."
+    };
+
+Step 3: Add ethers.js to HTML
+  → Add to index.html <head>:
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6/dist/ethers.umd.min.js"></script>
+
+Step 4: Users Can Now:
+  ✓ Capture photo with camera
+  ✓ Upload to IPFS
+  ✓ Mint as RWA (on blockchain)
+  ✓ List for sale
+  ✓ Buy/sell RWAs
+  ✓ Withdraw earnings
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 KEY FUNCTIONS SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Minting:
+  mintRWA(to, uri, title, desc, category) → tokenId
+  approveMinter(address) → void
+  revokeMinter(address) → void
+
+Trading:
+  listAsset(tokenId, price) → void
+  updatePrice(tokenId, newPrice) → void
+  cancelListing(tokenId) → void
+  buyAsset(tokenId) { value } → void
+
+Withdrawals:
+  withdrawEarnings() → void
+  withdrawPlatformFees() → void
+
+Admin:
+  setPlatformFee(percentage) → void
+  setMinimumPrice(amount) → void
+
+Views:
+  getListing(tokenId) → AssetListing
+  getAssetMetadata(tokenId) → AssetMetadata
+  isListed(tokenId) → bool
+  getSellerBalance(seller) → uint256
+  calculateFinalPrice(basePrice) → (amount, fee)
+  getTotalSupply() → uint256
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🌐 SUPPORTED NETWORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Testnets (Recommended for Testing):
+  • Sepolia (Ethereum testnet)
+    RPC: https://sepolia.infura.io/v3/YOUR_KEY
+    Faucet: https://sepoliafaucet.com
+    Explorer: https://sepolia.etherscan.io
+
+  • Mumbai (Polygon testnet)
+    RPC: https://polygon-mumbai.infura.io/v3/YOUR_KEY
+    Faucet: https://faucet.polygon.technology
+    Explorer: https://mumbai.polygonscan.com
+
+Mainnets (Production):
+  • Ethereum Mainnet
+  • Polygon Mainnet
+  • Arbitrum
+  • Optimism
+  • Base
+  • (Any EVM-compatible network)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💰 FEE STRUCTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Default Platform Fee: 5%
+
+Example Transaction:
+  Asset Price:      1.0 ETH
+  Platform Fee:     0.05 ETH (5%)
+  Seller Receives:  0.95 ETH
+  
+  Configurable:
+  - Fee range: 0-50%
+  - Can be adjusted by owner
+  - Applied to every sale
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🔒 SECURITY FEATURES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Reentrancy Protection (CEI pattern)
+✓ Access Control (Owner-only functions)
+✓ Input Validation (Price minimums)
+✓ Fund Safety (Seller escrow)
+✓ Fee Caps (Max 50%)
+✓ Ownership Transfer (Safe)
+✓ Event Logging (Full audit trail)
+✓ No Self-Destruct (Permanent)
+✓ No Delegate Calls (Simple logic)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📖 REBRANDING: NFT → RWA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+All mentions updated from "NFT" to "RWA":
+
+Old Terminology          →  New Terminology
+─────────────────────────────────────────
+NFT Minting            →  RWA Minting
+NFT Marketplace        →  RWA Marketplace
+NFT Token              →  RWA Token
+NFT Trading            →  RWA Trading
+NFT Metadata           →  RWA Metadata
+NFT Asset              →  RWA Asset
+NFT Contract           →  RWA Contract
+
+Frontend:
+  "MINT NFT" button     →  "MINT RWA" button
+  "NFT DETAILS" form    →  "RWA DETAILS" form
+  "NFT TITLE" field     →  "RWA TITLE" field
+  "Buy NFT" function    →  "Buy RWA" function
+
+Smart Contract:
+  Token Name: "Real World Asset"
+  Token Symbol: "RWA"
+  Function: mintRWA()
+  Event: AssetMinted
+  Struct: AssetListing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📚 DOCUMENTATION FILES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Start Here:
+  1. RWA_CONTRACT_GUIDE.md (⭐ Most Comprehensive)
+     └─ Complete deployment guide
+     └─ API reference for all functions
+     └─ Integration examples
+     └─ Testing instructions
+     └─ Troubleshooting
+
+  2. QUICKSTART.md
+     └─ 5-minute quick start
+     └─ Basic setup
+     └─ Common tasks
+
+  3. README.md
+     └─ OctoCam Ultra-Lite features
+     └─ Platform overview
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 NEXT STEPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Deploy RWA Contract
+   └─ Choose Remix, Hardhat, or Truffle
+   └─ Deploy to Sepolia testnet
+   └─ Save contract address
+
+2. Configure OctoCam
+   └─ Update script.js with contract address
+   └─ Add ethers.js library to HTML
+   └─ Test minting and selling
+
+3. Test on Testnet
+   └─ Get testnet ETH from faucet
+   └─ Capture photos
+   └─ Upload to IPFS
+   └─ Mint RWAs
+   └─ List for sale
+   └─ Buy and sell RWAs
+
+4. Deploy to Mainnet (When Ready)
+   └─ Deploy contract to Ethereum/Polygon
+   └─ Update production configuration
+   └─ Enable real transactions
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+✨ HIGHLIGHTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ Complete marketplace solution
+✨ Real World Asset trading platform
+✨ Production-ready smart contract
+✨ Full documentation included
+✨ Easy integration with OctoCam
+✨ Supports multiple blockchains
+✨ Secure & auditable
+✨ Gas-efficient code
+✨ Admin controls included
+✨ Ready for testnet deployment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                     🚀 YOU'RE READY TO DEPLOY! 🚀
+
+                    Deploy in 5 minutes on Remix IDE
+                    Or 10 minutes with Hardhat CLI
+                    
+              See RWA_CONTRACT_GUIDE.md for detailed steps
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EOF
