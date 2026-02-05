@@ -59,12 +59,9 @@ async function connectWallet() {
     state.walletAddress = accounts[0];
 
     document.getElementById('connectWalletBtn').textContent = 
-      `Connected: ${accounts[0].substring(0, 6)}...${accounts[0].substring(38)}`;
+      `✓ Connected: ${accounts[0].substring(0, 6)}...${accounts[0].substring(38)}`;
     document.getElementById('connectWalletBtn').disabled = true;
     document.getElementById('connectWalletBtn').style.opacity = '0.6';
-
-    // Enable start capture button
-    document.getElementById('startCaptureBtn').disabled = false;
 
     console.log('Wallet connected:', accounts[0]);
   } catch (error) {
@@ -337,8 +334,13 @@ async function setRWAContractAddress() {
 
 async function mintRWAtoBlockchain() {
   if (!state.walletConnected) {
-    alert('Please connect your wallet first');
-    return;
+    const shouldConnect = confirm('Wallet not connected. Connect now to mint RWA?');
+    if (shouldConnect) {
+      await connectWallet();
+      if (!state.walletConnected) return;
+    } else {
+      return;
+    }
   }
 
   if (!CONFIG.rwaContractAddress) {
@@ -390,8 +392,13 @@ Note: Gas fees will apply based on network.
 
 async function listRWAForSale() {
   if (!state.walletConnected) {
-    alert('Please connect your wallet first');
-    return;
+    const shouldConnect = confirm('Wallet not connected. Connect now to list RWA?');
+    if (shouldConnect) {
+      await connectWallet();
+      if (!state.walletConnected) return;
+    } else {
+      return;
+    }
   }
 
   if (!CONFIG.rwaContractAddress) {
@@ -438,8 +445,13 @@ await contract.listAsset(${tokenId}, "${priceInWei}");
 
 async function buyRWAAsset() {
   if (!state.walletConnected) {
-    alert('Please connect your wallet first');
-    return;
+    const shouldConnect = confirm('Wallet not connected. Connect now to buy RWA?');
+    if (shouldConnect) {
+      await connectWallet();
+      if (!state.walletConnected) return;
+    } else {
+      return;
+    }
   }
 
   if (!CONFIG.rwaContractAddress) {
