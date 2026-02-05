@@ -32,8 +32,22 @@ function showScreen(screenName) {
 
 async function connectWallet() {
   try {
+    // Check if we're on mobile
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
     if (!window.ethereum) {
-      alert('MetaMask is not installed. Please install it to continue.');
+      if (isMobile) {
+        const message = `📱 MOBILE WALLET SETUP\n\n` +
+          `MetaMask is not available in Chrome on mobile.\n\n` +
+          `OPTIONS:\n` +
+          `1. Open MetaMask Mobile App → Tap the menu → "Browser"\n` +
+          `2. Or use Trust Wallet → Open dApp browser\n` +
+          `3. Or use Coinbase Wallet → Built-in Web3 support\n\n` +
+          `Then come back and tap "Connect Wallet"`;
+        alert(message);
+      } else {
+        alert('MetaMask is not installed. Install it from: https://metamask.io');
+      }
       return;
     }
 
