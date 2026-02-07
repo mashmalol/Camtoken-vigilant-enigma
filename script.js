@@ -133,20 +133,44 @@ function capturePhoto() {
     return;
   }
 
-  // Set canvas size to match video resolution
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
+  // Capture what's actually visible (matching the display)
+  // Get the display container dimensions
+  const container = video.parentElement;
+  const displayWidth = container.offsetWidth;
+  const displayHeight = container.offsetHeight;
+
+  // Set canvas to match what's visible
+  canvas.width = displayWidth;
+  canvas.height = displayHeight;
 
   const ctx = canvas.getContext('2d');
   
-  // Draw image to fill canvas (crop to fit)
-  const displayWidth = video.offsetWidth;
-  const displayHeight = video.offsetHeight;
+  // Calculate scaling to match how video is displayed (object-fit: cover)
+  const videoAspect = video.videoWidth / video.videoHeight;
+  const displayAspect = displayWidth / displayHeight;
   
-  // Draw the entire video frame
-  ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
+  let drawWidth, drawHeight, offsetX = 0, offsetY = 0;
+  
+  if (videoAspect > displayAspect) {
+    // Video is wider - crop sides
+    drawHeight = video.videoHeight;
+    drawWidth = drawHeight * displayAspect;
+    offsetX = (video.videoWidth - drawWidth) / 2;
+  } else {
+    // Video is taller - crop top/bottom
+    drawWidth = video.videoWidth;
+    drawHeight = drawWidth / displayAspect;
+    offsetY = (video.videoHeight - drawHeight) / 2;
+  }
+  
+  // Draw only the visible portion
+  ctx.drawImage(
+    video,
+    offsetX, offsetY, drawWidth, drawHeight,
+    0, 0, displayWidth, displayHeight
+  );
 
-  state.capturedImage = canvas.toDataURL('image/jpeg', 0.9);
+  state.capturedImage = canvas.toDataURL('image/jpeg', 0.95);
 
   // Stop camera after capture
   stopCamera();
