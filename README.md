@@ -9,7 +9,7 @@ This is the ultra-optimized version of OctoCam, removing all heavy dependencies:
 ### ✅ Optimization Summary
 
 | Optimization | Before | After | Savings |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | **1. Remove Next.js** | React + Next.js 14 (~150KB) | Vanilla HTML | ~150KB |
 | **2. Remove Tailwind** | Tailwind CSS (~50KB) | Inline CSS | ~50KB |
 | **3. Remove IPFS Client** | ipfs-http-client (~200KB) | Fetch API | ~200KB |
@@ -35,17 +35,19 @@ This is the ultra-optimized version of OctoCam, removing all heavy dependencies:
 ✅ MetaMask wallet connection (window.ethereum)  
 ✅ Retro cyberpunk UI (CRT scanlines, neon colors, digital rain)  
 ✅ Mobile responsive  
-✅ Pure CSS animations (no JavaScript overhead)  
+✅ Pure CSS animations (no JavaScript overhead)
 
 ## Quick Start
 
 ### Option 1: Python HTTP Server (No dependencies)
+
 ```bash
 python3 -m http.server 8000
 # Visit http://localhost:8000
 ```
 
 ### Option 2: Node HTTP Server
+
 ```bash
 npx http-server -p 8000
 # Visit http://localhost:8000
