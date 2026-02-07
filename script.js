@@ -129,6 +129,9 @@ function capturePhoto() {
 
   state.capturedImage = canvas.toDataURL('image/png');
 
+  // Stop camera after capture
+  stopCamera();
+
   // Show captured image
   document.getElementById('capturedImg').src = state.capturedImage;
   showScreen('formScreen');
@@ -140,7 +143,8 @@ function retakePhoto() {
   document.getElementById('nftForm').reset();
   state.attributes = [];
   updateAttributesDisplay();
-  showScreen('cameraScreen');
+  // Restart camera for retake
+  startCamera();
 }
 
 // ===========================================
