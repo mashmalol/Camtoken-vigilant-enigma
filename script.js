@@ -536,6 +536,31 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ===========================================
+// 9. MOBILE & TOUCH OPTIMIZATION
+// ===========================================
+
+// Prevent double-tap zoom
+document.addEventListener('touchstart', (e) => {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, false);
+
+// Prevent pinch zoom
+document.addEventListener('wheel', (e) => {
+  if (e.ctrlKey) {
+    e.preventDefault();
+  }
+}, false);
+
+// Prevent body scroll on mobile
+document.body.addEventListener('touchmove', (e) => {
+  if (e.target.closest('.content-wrapper') === null) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+// ===========================================
 // FUTURE ENHANCEMENTS
 // ===========================================
 // - Contract interaction via ethers.js alternative (or web3.js)

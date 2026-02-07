@@ -398,21 +398,207 @@ button {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+  html, body {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .content-wrapper {
+    padding: 0.5rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .screen {
+    max-width: 100%;
+    width: 100%;
+  }
+
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  p {
+    font-size: 1rem;
   }
 
   .retro-panel {
     padding: 1rem;
+    border: 3px solid var(--text);
+    margin: 0;
+  }
+
+  /* Buttons - Touch Friendly (min 48x48px) */
+  button {
+    font-size: 1rem;
+    padding: 1rem 1.5rem;
+    min-height: 48px;
+    min-width: 48px;
+    border-width: 2px !important;
   }
 
   .button-group,
   .button-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .button-group button,
+  .button-grid button {
+    width: 100%;
+  }
+
+  .instructions {
+    margin: 1rem 0;
+    line-height: 1.8;
   }
 
   .instructions p {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+    margin: 0.4rem 0;
+  }
+
+  /* Camera Container */
+  .camera-container {
+    border: 3px solid var(--text);
+    margin: 0.75rem 0;
+    max-height: 60vh;
+    aspect-ratio: 9 / 16;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #videoFeed, #capturedImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .controls {
+    padding: 0.75rem;
+  }
+
+  /* Form Optimization */
+  #nftForm {
+    margin-top: 1rem;
+  }
+
+  .form-group {
+    margin-bottom: 0.875rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.03em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.875rem;
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+    border: 2px solid var(--secondary);
+  }
+
+  .form-group input {
+    height: 44px; /* Touch-friendly height */
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+    line-height: 1.4;
+  }
+
+  /* Attribute Input */
+  .attribute-input {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .attribute-input input {
+    min-height: 44px;
+  }
+
+  .attribute-input button {
+    min-height: 44px;
+    width: 100%;
+  }
+
+  /* Attributes List */
+  .attr-item {
+    padding: 0.75rem;
+    font-size: 0.8rem;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .attr-remove {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    min-width: 44px;
+    text-align: center;
+  }
+
+  /* Preview Image */
+  .preview-image {
+    border: 3px solid var(--secondary);
+    margin-bottom: 1rem;
+    max-height: 50vh;
+    object-fit: contain;
+  }
+
+  /* Hide CRT effect on mobile for performance */
+  body::before {
+    animation: none;
+  }
+
+  .rain::before {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .retro-panel {
+    padding: 0.75rem;
+    border: 2px solid var(--text);
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 0.875rem 1.25rem;
+  }
+
+  .instructions p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+
+  .camera-container {
+    max-height: 70vh;
   }
 }
