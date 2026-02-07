@@ -76,11 +76,12 @@ async function connectWallet() {
 
 async function startCamera() {
   try {
+    // Mobile-friendly camera constraints
     const constraints = {
       video: {
         facingMode: 'environment',
-        width: { ideal: 1280 },
-        height: { ideal: 720 },
+        width: { min: 640, ideal: 1280, max: 1920 },
+        height: { min: 480, ideal: 720, max: 1440 },
       },
       audio: false,
     };
@@ -91,6 +92,11 @@ async function startCamera() {
     video.srcObject = state.stream;
     video.playsInline = true;
     video.muted = true;
+    
+    // Ensure video fills container properly
+    video.addEventListener('loadedmetadata', () => {
+      video.play().catch(e => console.error('Video play error:', e));
+    }, { once: true });
 
     // Ensure video is playing
     video.play().catch(e => console.error('Video play error:', e));
@@ -121,13 +127,26 @@ function capturePhoto() {
     canvas = c;
   }
 
+  // Wait for video metadata to load
+  if (video.videoWidth === 0 || video.videoHeight === 0) {
+    alert('Camera not ready. Please try again.');
+    return;
+  }
+
+  // Set canvas size to match video resolution
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;
 
   const ctx = canvas.getContext('2d');
-  ctx.drawImage(video, 0, 0);
+  
+  // Draw image to fill canvas (crop to fit)
+  const displayWidth = video.offsetWidth;
+  const displayHeight = video.offsetHeight;
+  
+  // Draw the entire video frame
+  ctx.drawImage(video, 0, 0, video.videoWidth, video.videoHeight);
 
-  state.capturedImage = canvas.toDataURL('image/png');
+  state.capturedImage = canvas.toDataURL('image/jpeg', 0.9);
 
   // Stop camera after capture
   stopCamera();
