@@ -406,6 +406,8 @@ button {
   display: block;
   object-fit: contain;
   max-height: 60vh;
+  box-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 204, 255, 0.6), inset 0 0 20px rgba(0, 255, 65, 0.2);
+  filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.6));
 }
 }
 
@@ -576,6 +578,8 @@ button {
     max-width: 100%;
     max-height: 50vh;
     object-fit: contain;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.7), 0 0 30px rgba(0, 204, 255, 0.5), inset 0 0 15px rgba(0, 255, 65, 0.2);
+    filter: drop-shadow(0 0 8px rgba(0, 255, 65, 0.6));
   }
 
   /* Hide CRT effect on mobile for performance */
