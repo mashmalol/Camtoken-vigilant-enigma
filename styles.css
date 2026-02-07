@@ -274,11 +274,21 @@ button {
   box-shadow: var(--shadow);
   overflow: hidden;
   margin: 1rem 0;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #videoFeed, #capturedImg {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
   filter: contrast(1.1) brightness(1.05);
 }
 
@@ -392,9 +402,12 @@ button {
 /* Preview Image */
 .preview-image {
   width: 100%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
   border: 4px solid var(--secondary);
-  margin-bottom: 1.5rem;
+  margin: 1rem auto;
   display: block;
+  object-fit: cover;
 }
 
 /* Responsive */
@@ -559,9 +572,11 @@ button {
   /* Preview Image */
   .preview-image {
     border: 3px solid var(--secondary);
-    margin-bottom: 1rem;
-    max-height: 50vh;
-    object-fit: contain;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
   }
 
   /* Hide CRT effect on mobile for performance */

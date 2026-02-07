@@ -76,12 +76,13 @@ async function connectWallet() {
 
 async function startCamera() {
   try {
-    // Mobile-friendly camera constraints
+    // Portrait-friendly camera constraints (9:16 aspect ratio)
     const constraints = {
       video: {
         facingMode: 'environment',
-        width: { min: 640, ideal: 1280, max: 1920 },
-        height: { min: 480, ideal: 720, max: 1440 },
+        width: { min: 360, ideal: 720, max: 1080 },
+        height: { min: 640, ideal: 1280, max: 1920 },
+        aspectRatio: { ideal: 9 / 16 }
       },
       audio: false,
     };
